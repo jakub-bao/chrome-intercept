@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Intercept",
+  "version": "0.0.1",
+  "permissions": [
+    "webRequest"
+  ],
+  "host_permissions": [
+    "http://localhost:3000/*",
+    "https://api.sbx.pdap.pepfar.net/*"
+  ],
+  "content_scripts": [{
+    "js": ["build/index.js"],
+    "matches": ["http://localhost:3000/*"]
+  }]
+}

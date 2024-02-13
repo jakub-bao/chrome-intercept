@@ -1,0 +1,11 @@
+{
+  "name": "intercept",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.3",
+    "@types/chrome": "^0.0.260"
+  }
+}

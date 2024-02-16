@@ -2,31 +2,12 @@
   "manifest_version": 3,
   "name": "Switch Tabs",
   "version": "0.0.1",
-  "permissions": [
-    "downloads",
-    "storage",
-    "tabs",
-    "clipboardWrite",
-    "background",
-    "browsingData",
-    "bookmarks",
-    "sessions",
-    "management",
-    "debugger",
-    "scripting",
-    "activeTab"
-  ],
-  "host_permissions": ["*://*/*"],
   "commands": {
-    "nextTab": {"description": "Switch to NEXT tab"},
-    "previousTab": {"description": "Switch to PREVIOUS tab"}
+    "next": {"description": "Switch to NEXT tab"},
+    "previous": {"description": "Switch to PREVIOUS tab"}
   },
   "background": {
     "service_worker": "build/serviceWorker.js",
     "type": "module"
-  },
-  "content_scripts": [{
-    "js": ["build/content.js"],
-    "matches": ["<all_urls>"]
-  }]
+  }
 }

@@ -1,17 +1,10 @@
 import Tab = chrome.tabs.Tab;
 
-console.log('Switch Tabs service worker')
-
-// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-//     switchTab(request)
-//     sendResponse(request)
-// })
-
 type TabId = {
     index: number;
     id: number|undefined;
     active: boolean;
-} & Partial<Tab>
+}
 
 async function switchTab(direction: string){
     const allTabs:Tab[] = await chrome.tabs.query({currentWindow:true})
@@ -28,5 +21,6 @@ async function switchTab(direction: string){
 }
 
 chrome.commands.onCommand.addListener(function (command) {
-    switchTab(command.replace('Tab',''))
+    if (!['next','previous'].includes(command)) return
+    switchTab(command)
 })

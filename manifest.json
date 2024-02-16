@@ -3,8 +3,18 @@
   "name": "Switch Tabs",
   "version": "0.0.1",
   "commands": {
-    "next": {"description": "Switch to NEXT tab"},
-    "previous": {"description": "Switch to PREVIOUS tab"}
+    "next": {
+      "description": "Switch to NEXT tab",
+      "suggested_key": {
+        "default": "Ctrl+Right"
+      }
+    },
+    "previous": {
+      "description": "Switch to PREVIOUS tab",
+      "suggested_key": {
+        "default": "Ctrl+Left"
+      }
+    }
   },
   "background": {
     "service_worker": "build/serviceWorker.js",

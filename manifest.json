@@ -1,16 +1,32 @@
 {
   "manifest_version": 3,
-  "name": "Intercept",
+  "name": "Switch Tabs",
   "version": "0.0.1",
   "permissions": [
-    "webRequest"
+    "downloads",
+    "storage",
+    "tabs",
+    "clipboardWrite",
+    "background",
+    "browsingData",
+    "bookmarks",
+    "sessions",
+    "management",
+    "debugger",
+    "scripting",
+    "activeTab"
   ],
-  "host_permissions": [
-    "http://localhost:3000/*",
-    "https://api.sbx.pdap.pepfar.net/*"
-  ],
+  "host_permissions": ["*://*/*"],
+  "commands": {
+    "nextTab": {"description": "Switch to NEXT tab"},
+    "previousTab": {"description": "Switch to PREVIOUS tab"}
+  },
+  "background": {
+    "service_worker": "build/serviceWorker.js",
+    "type": "module"
+  },
   "content_scripts": [{
-    "js": ["build/index.js"],
-    "matches": ["http://localhost:3000/*"]
+    "js": ["build/content.js"],
+    "matches": ["<all_urls>"]
   }]
 }
